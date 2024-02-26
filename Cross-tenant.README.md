@@ -183,7 +183,7 @@ Each subdirectory contains a stubbed version of the local.settings.json files wh
 
 Principal authors: > Only the primary authors. List them alphabetically, by last name. Use this format: Fname Lname. If the article gets rewritten, keep the original authors and add in the new one(s).
 
- * [Audrey Long](https://www.linkedin.com/in/aulong/) | "Senior Security Software Engineer"
+ * [Audrey Long](https://www.linkedin.com/in/aulong/) | "Senior Software Engineer"
  * [Ashton Mickey](https://www.linkedin.com/in/ashtonmickey/) |  "Principal Software Engineer"
  * [John Garland](https://www.linkedin.com/in/avidgator/) |  "Principal Software Engineer"
 
