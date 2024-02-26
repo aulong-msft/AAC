@@ -76,7 +76,8 @@ We first need to create a Service Principal in the Provider's tenant and provisi
 
 1. Enter the name for the service principal and choose "Accounts in any organization (Any Entra directory - Multitenant)".
 
-1. Add - Web - "https://entra.microsoft.com" as the redirect URI. *Please change this URI to suit your business needs*
+1. Add - Web - "https://entra.microsoft.com" as the redirect URI.
+   *Please change this URI to suit your business needs*
 
 1. Register and take note of the application (client) ID value.
 
