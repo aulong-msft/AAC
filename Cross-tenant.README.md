@@ -190,10 +190,10 @@ Principal authors: > Only the primary authors. List them alphabetically, by last
 
 ## Next steps
 
+- [Cross Tenant Communication using an Azure Service Bus Sample Code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
 - [Identity Based Functions Tutorial](https://learn.microsoft.com/azure/azure-functions/functions-identity-based-connections-tutorial-2)
 
 ## Related resources
 
-- [Cross Tenant Communication using an Azure Service Bus Sample Code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md)
 - [Azure Functions Service Bus trigger SDK Issue](https://github.com/Azure/azure-sdk-for-net/issues/30961)
 - [Service Bus Managed Identity Limitation](https://learn.microsoft.com/dotnet/api/overview/azure/Microsoft.Azure.WebJobs.Extensions.ServiceBus-readme#managed-identity-authentication)
