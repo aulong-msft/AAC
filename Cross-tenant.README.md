@@ -19,7 +19,11 @@ categories:
 
 # Cross-Tenant Communication using Multi-Tenant Applications
 
-This pattern contains a sample solution for handling cross-tenant communication between a Provider and one or more of its Customers using Service Bus message queues. The problem is of a multi-tenanted nature: the Provider needs to communicate securely with each of its Customers, and each Customer needs to communicate securely with the Provider.
+This pattern addresses the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants. This pattern can be reused for any multi-tenanted scenario with a variety of services that need to communicate across Entra tenant boundaries.
+
+Securing multi-tenanted communications in Azure is challenging with our current cloud service offerings. Azure managed identities do not work across tenant boundaries, and the typical alternative is to use access tokens. Access tokens, however, introduce the need to securely distribute and rotate secrets across Entra tenant boundaries. This is a bi-directional problem; in a multi-tenanted scenario where a single Provider has multiple Customers, the Provider needs to communicate securely with each of its Customers, and each Customer needs to communicate securely with the Provider.
+
+Our pattern contains a sample solution for handling cross-tenant communication between a Provider and one or more of its Customers using Service Bus message queues. The problem is of a multi-tenanted nature: the Provider needs to communicate securely with each of its Customers, and each Customer needs to communicate securely with the Provider.
 
 The implementation found in this pattern matches the use-case demonstrated in the image below. The [Cross Tenant Communication using an Azure Service Bus Sample Code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md) has been segmented to represent a Customer's infrastructure within a Customer tenant, as well as a Provider's infrastructure within a Provider tenant.
 
