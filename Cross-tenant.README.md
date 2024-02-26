@@ -1,6 +1,6 @@
 ---
 title: Cross Tenant Communication using Multi-Tenanted Applications
-description: This pattern addresses the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenant and can be reused for any Azure multi-tenanted scenario with a variety of services that need to communicate across Entra tenant boundaries.
+description: This pattern addresses the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants and can be reused for any Azure multi-tenanted scenario with a variety of services that need to communicate across Entra tenant boundaries.
 author: aulong-msft, ashtmMSFT, John-Garland
 ms.author: aulong, ashtm, johngarland
 ms.date: 2/23/2024
@@ -19,19 +19,19 @@ categories:
 
 # Cross-Tenant Communication using Multi-Tenant Applications
 
-Securing multi-tenanted communications in Azure is challenging with our current cloud service offerings. Azure managed identities do not work across tenant boundaries, and the typical alternative is to use access tokens. Access tokens, however, introduce the need to securely distribute and rotate secrets across Entra tenant boundaries. This is a bi-directional problem; in a multi-tenanted scenario where a single Provider has multiple Customers, the Provider needs to communicate securely with each of its Customers, and each Customer needs to communicate securely with the Provider.
+We need to address the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants.
 
-The implementation found in this pattern matches the use-case demonstrated in the image below. The [Cross Tenant Communication using an Azure Service Bus Sample Code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md) has been segmented to represent a Customer's infrastructure within a Customer tenant, as well as a Provider's infrastructure within a Provider tenant.
+Securing multi-tenanted communications in Azure is challenging with our current cloud service offerings. Azure managed identities do not work across tenant boundaries, and the typical alternative is to use access tokens. Access tokens, however, introduce the need to securely distribute and rotate secrets across Entra tenant boundaries. One option which avoids this overhead is to create a multi-tenant application to represent your workload's identity. Then, through a consent process, this workload identity can be made known to an external tenant, ultimately allowing it to authenticate to services in the external tenant.
 
-![PoC Infrastructure](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/blob/main/Docs/arch.png)
+This article covers one such example implementation of this pattern and is accompanied by [sample code](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/edit/main/README.md).
+
+This pattern can be reused for any multi-tenanted scenario with a variety of services that need to communicate across Entra tenant boundaries.
 
 ## The Problem Statement
 
-We need to address the need to have bidirectional secure communications between services hosted in Azure subscriptions managed by different Entra tenants. This pattern can be reused for any multi-tenanted scenario with a variety of services that need to communicate across Entra tenant boundaries.
-Please check out the github page which contains a sample solution for handling cross-tenant communication between a Provider and one or more of its Customers using Service Bus message queues. The problem is of a multi-tenanted nature: the Provider needs to communicate securely with each of its Customers, and each Customer needs to communicate securely with the Provider.
-
 A Provider has multiple Customers. The Provider and each Customer need a secure, bidirectional method of communication. Messages must be exchanged through Azure Service Bus queues from Provider to Customer and vice versa. The solution should have a compelling identity story that avoids introducing unnecessary credentials or secrets.
 
+![PoC Infrastructure](https://github.com/Azure-Samples/Cross-Tenant-Communication-Using-Azure-Service-Bus/blob/main/Docs/arch.png)
 
 ## How does the Provider message the Customer?
 
@@ -199,5 +199,6 @@ Principal authors: > Only the primary authors. List them alphabetically, by last
 
 ## Related resources
 
+- [Cross-Tenant Service Communication in Microsoft Azure (YouTube, 18m)](https://www.youtube.com/watch?v=uHbuMqSFpVI)
 - [Azure Functions Service Bus trigger SDK Issue](https://github.com/Azure/azure-sdk-for-net/issues/30961)
 - [Service Bus Managed Identity Limitation](https://learn.microsoft.com/dotnet/api/overview/azure/Microsoft.Azure.WebJobs.Extensions.ServiceBus-readme#managed-identity-authentication)
